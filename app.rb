@@ -7,7 +7,6 @@ get '/' do
   text_file = files.sample
   source_text = File.read(text_file).strip
   text_array = source_text.split
-
   exclude = []
   for i in ((text_array.length-5)...(text_array.length))
     exclude << text_array[i]
