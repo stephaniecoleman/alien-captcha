@@ -1,5 +1,4 @@
 require "./spec/spec_helper"
-require "json"
 
 describe 'The Word Counting App' do
   def app
@@ -11,6 +10,19 @@ describe 'The Word Counting App' do
     expect(last_response).to be_ok
     parsed_response = JSON.parse(last_response.body)
     expect(parsed_response).to have_key("text")
-    expect(parsed_response).to have_key("exclude")
+    expect(parsed_response).to have_key("exclude")  
   end
+
+  it "returns 200 if count is correct" do
+    post '/'
+    expect(last_response).to be_ok
+    parsed_response = JSON.parse(last_response.body)
+    expect(parsed_response[])
+  end
+
+  it "returns 400 if the count is incorrect" do
+    post '/'
+    expect(last_response)
+  end
+
 end

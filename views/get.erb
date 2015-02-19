@@ -1,0 +1,17 @@
+{
+  "text": "<%= source_text %>",
+  "exclude": <%= exclude.inspect %>
+}
+
+<br>
+
+<form action='/' method="post">
+	<input type="hidden" name="source_text" value="<%= source_text %>">
+	<input type="hidden" name="exclude" value="<%= exclude.join(",") %>">
+	<% included.each do |word| %>
+		<label><%= word %></label>
+		<input name="words[<%= word %>]" type="number" value="0">
+		<br>
+	<% end %>
+	<input type="submit"></input>
+</form>
