@@ -6,6 +6,7 @@ gem "sinatra-contrib"
 
 gem "json"
 gem "rspec"
+gem "capybara"
 
 gem "pry"
 gem "pry-nav"
