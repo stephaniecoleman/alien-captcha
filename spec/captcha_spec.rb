@@ -34,7 +34,9 @@ describe Captcha do
   describe "#get_word_frequency" do
     it "should return the frequency of each word in the string" do
       captcha = Captcha.new(medium_text)
-      frequency = {"tomorrow" => 3, "and" => 2}
+      captcha.get_excluded_array
+      captcha.get_included_array
+      frequency = {"and" => 2}
       expect(captcha.get_word_frequency).to eq(frequency)
     end
   end
@@ -42,6 +44,8 @@ describe Captcha do
   describe "#check_for_match" do
     it "returns true if the client correctly counts the words in the string" do
       captcha = Captcha.new(long_text)
+      captcha.get_excluded_array
+      captcha.get_included_array
       captcha.get_word_frequency
       expect(captcha.check_for_match(answer_hash)).to eq(true)
     end

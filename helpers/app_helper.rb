@@ -7,11 +7,11 @@ helpers do
 
 	def return_status(match)
 		if match
-			status 200 
+			status 200
 			body "200 OK"
 		else
-			status 404 
-			body "404 Bad Request"
+			status 400
+			body "400 Bad Request"
 		end
 	end
 end
