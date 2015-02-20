@@ -9,7 +9,7 @@ get '/' do
 	source_text = get_source_text
 	captcha = Captcha.new(source_text)
 	exclude = captcha.get_excluded_array
-  erb :get, locals: { source_text: source_text, exclude: exclude}
+  erb :challenge, locals: { source_text: source_text, exclude: exclude}
 end
 
 post '/' do

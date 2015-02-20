@@ -2,9 +2,12 @@ require "./spec/spec_helper"
 
 describe Captcha do
   let(:long_text) {"Celia, you're breaking my heart, You're shaking my confidence daily. Celia, you're breaking my heart, You're shaking my confidence daily."}
+
   let(:answer_hash) { {"my"=>4, "heart"=>2, "shaking"=>2, "confidence"=>2, "daily"=>2} }
+
   let(:medium_text) {"Tomorrow and tomorrow and tomorrow."}
   let(:short_text) {"Words, words, words."}
+  let(:answer_hash_single) { {"words"=>3} }
 
   describe "#get_excluded_array" do
     context "with long text" do
@@ -42,12 +45,24 @@ describe Captcha do
   end
 
   describe "#check_for_match" do
-    it "returns true if the client correctly counts the words in the string" do
-      captcha = Captcha.new(long_text)
-      captcha.get_excluded_array
-      captcha.get_included_array
-      captcha.get_word_frequency
-      expect(captcha.check_for_match(answer_hash)).to eq(true)
+    context "with a string that has many unique words" do
+      it "returns true if the client correctly counts the words" do
+        captcha = Captcha.new(long_text)
+        captcha.get_excluded_array
+        captcha.get_included_array
+        captcha.get_word_frequency
+        expect(captcha.check_for_match(answer_hash)).to eq(true)
+      end
+    end
+
+    context "with a string that has one unique word" do
+      it "returns true if the client correctly counts the words" do
+        captcha = Captcha.new(short_text)
+        captcha.get_excluded_array
+        captcha.get_included_array
+        captcha.get_word_frequency
+        expect(captcha.check_for_match(answer_hash_single)).to eq(true)
+      end
     end
   end
      

@@ -22,6 +22,11 @@ describe 'The Word Counting App' do
     expect(last_response.status).to eq(200)
   end
 
+  it "returns 200 if count is correct for single word Captcha." do
+    post '/', {"source_text"=>"Yo yo yo yo yo yo yo yo.", "exclude"=>[""], "words"=>{"yo"=>8}}
+    expect(last_response.status).to eq(200)
+  end
+
   it "returns 400 if count is incorrect" do
     post '/', {"source_text"=>"The quick brown fox jumped over the lazy dog.", "exclude"=>["the", "quick", "brown"], "words"=>{"fox"=>10, "jumped"=>12, "lazy"=>11, "dog"=>1, "over"=>1}}
     expect(last_response.status).to eq(400)
