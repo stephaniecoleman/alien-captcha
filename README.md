@@ -1,4 +1,20 @@
-## Alien Captcha
+== Alien Captcha
+
+### Description
+
+This web service verifies that a client can count words. It supplies clients with a "test" and allows the client to submit an answer. If the client and the service were people, their conversation might go something like this:
+
+> **Client**: Service, can you give me some words to count?
+> 
+> **Service**: Sure. Please count the frequency of the words in "The quick brown fox jumped over the lazy dog" but please ignore the words "the" and "dog".
+> 
+> **Client**: Ok, the original text was "The quick brown fox jumped over the lazy dog" and in this text, ignoring the words  "the" and "dog", "quick" appeared once, "brown" appeared once, "fox" appeared once, "jumped" appeared once, "over" appeared once, "lazy" appeared once, and "the" appeared twice.
+> 
+> **Service**: Sorry, that's wrong. Nice try space troll.
+> 
+> **Client**: Oops, what I meant was the original text was "The quick brown fox jumped over the lazy dog" and in this text, ignoring the words  "the" and "dog", "quick" appeared once, "brown" appeared once, "fox" appeared once, "jumped" appeared once, "over" appeared once, and "lazy" appeared once.
+> 
+> **Service**: Looks great.
 
 ### Installation
 + Please use Ruby 2.1.2
