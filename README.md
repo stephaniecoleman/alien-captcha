@@ -1,7 +1,6 @@
-== Alien Captcha
+## Alien Captcha
 
 ### Description
-
 This web service verifies that a client can count words. It supplies clients with a "test" and allows the client to submit an answer. If the client and the service were people, their conversation might go something like this:
 
 > **Client**: Service, can you give me some words to count?
